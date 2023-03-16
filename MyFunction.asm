@@ -1,12 +1,20 @@
 .code 
-MyFunction proc
-	mov rax, 261
-	add ah, al
-	mov rax, 511
-	add al, ah
-	mov rax, -1
-	mov ah, 0
-	mov ax, 0
-	ret
-MyFunction endp
+    ; Function to calculate a AND b
+    aANDb PROC a:DWORD, b:DWORD
+        mov eax, a
+        and eax, b
+        ret
+    aANDb ENDP
+
+    aORb PROC a:DWORD, b:DWORD
+        mov eax, a
+        or eax, b
+        ret
+    aORb ENDP
+
+    negatedB PROC b:DWORD
+        not b
+        add b, 1
+        ret
+    negateb ENDP
 end
