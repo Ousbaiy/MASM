@@ -1,3 +1,8 @@
-﻿  main.cpp
-main.obj : error LNK2019: unresolved external symbol _MyFunction referenced in function _main
-C:\Users\Oussama\Desktop\masm\Debug\masm.exe : fatal error LNK1120: 1 unresolved externals
+﻿  Assembling MyFunction.asm...
+MyFunction.asm(1): error A2013: .MODEL must precede this directive
+MyFunction.asm(3): error A2034: must be in segment block : aANDb
+MyFunction.asm(4): error A2034: must be in segment block
+MyFunction.asm(5): error A2034: must be in segment block
+MyFunction.asm(6): error A2034: must be in segment block
+MyFunction.asm(7): fatal error A1010: unmatched block nesting : aANDb
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\BuildCustomizations\masm.targets(70,5): error MSB3721: The command "ml.exe /c /nologo /Zi /Fo"Debug\MyFunction.obj" /W3 /errorReport:prompt  /TaMyFunction.asm" exited with code 1.

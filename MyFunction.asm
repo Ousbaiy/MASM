@@ -16,5 +16,5 @@
         not b
         add b, 1
         ret
-    negateb ENDP
+    negatedB ENDP ; I had spell mistake here that why code didn't work
 end
