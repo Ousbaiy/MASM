@@ -2,14 +2,15 @@
 
 using namespace std;
 
-extern "C" int aANDb();
-extern "C" int aORb();
-extern "C" int negatedB();
+extern "C" int MyFunction();
+extern "C" int testCPUID();
+extern "C" int main();
 
 
 int main(void) {
-	cout << "The result is: " << aANDb() << endl;
-// 	cout << "The result is: " << aORb() << endl;
-//	cout << "The result is: " << negatedB() << endl;
+//	cout << "The result is: " << MyFunction() << endl;
+ cout << "The result is: " << testCPUID() << endl;
+ //cout << "The result is: " << main() << endl;
+	
 	return 0;
 }

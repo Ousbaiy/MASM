@@ -1,20 +1,37 @@
-.code 
-    ; Function to calculate a AND b
-    aANDb PROC a:DWORD, b:DWORD
-        mov eax, a
-        and eax, b
-        ret
-    aANDb ENDP
 
-    aORb PROC a:DWORD, b:DWORD
-        mov eax, a
-        or eax, b
-        ret
-    aORb ENDP
+.code
+testCPUID proc
+    pushfq
+    pop rax
+    cmp rax, rbx
 
-    negatedB PROC b:DWORD
-        not b
-        add b, 1
-        ret
-    negatedB ENDP ; I had spell mistake here that why code didn't work
+    jz NO_CPUID
+
+    xor rax, rax
+    cpuid
+    mov rax, 1h
+    cpuid
+
+    NO_CPUID:
+    ret         ;rbx=3100800 ; rcx=7FFAFBBF  ; rdx=BFEBFBFF
+testCPUID endp  
 end
+
+
+;.code 
+;testCPUID proc
+;    pushfq
+;    pop rax
+;    cmp rax, rbx
+
+;    jz NO_CPUID
+
+;    ; get the logical processors count
+;    xor eax, eax
+;    cpuid
+;    mov ebx, eax
+
+;NO_CPUID:
+;    ret
+;testCPUID endp
+;end
