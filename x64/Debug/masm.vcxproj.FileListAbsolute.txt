@@ -1,3 +1,4 @@
 C:\Users\Oussama\Desktop\masm\x64\Debug\masm.exe
 C:\Users\Oussama\Desktop\Master Slides\Computer Architucter\Projects\masm\x64\Debug\masm.exe
 C:\Users\Oussama\Downloads\Compressed\masm\x64\Debug\masm.exe
+C:\Users\Oussama\Desktop\Master Slides\Computer Architucter\Projects\test\x64\Debug\masm.exe
