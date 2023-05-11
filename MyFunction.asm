@@ -1,34 +1,29 @@
 ;find character @ and remove it
+
 .data
     my_string db 'The symbol @ is incorrect'
-    symbol db '@'
+    modified_string db 26 dup(?) ; new location to copy modified string
+    ;symbol db '@'
     len dq 25
 
 .code
 MyFunction proc
-    xor rax, rax;
-    mov al, symbol ;symbol to find
-    mov rcx, len  ;counter in rcx
-    lea rdi, my_string
-    cld ;clear the direction flag
-    repne scasb ;instruction to search the difference
-    je l_found  ;when found
-    mov rax, -1 ;if not then
-    jmp l_exit
-l_found:
-    mov rax, len
-    sub rax, rcx
-    dec rcx ; decrement the counter to skip over the '@' symbol
-    mov rsi, rdi ; set the source pointer to the beginning of the string
-    add rsi, rcx ; add the index of '@' to the source pointer
-    mov rdi, rsi ; set the destination pointer to the beginning of the string
-    add rdi, 1 ; add 1 to skip over the '@' symbol
-    mov rcx, rax ; set the counter to the length of the modified string
-    sub rcx, 1 ; subtract 1 to exclude the '@' symbol
-    rep movsb ; copy the modified string to rdi
-    mov rax, rcx ; return the length of the modified string
-l_exit:
-    ret
+    lea rsi, my_string ; source string
+    lea rdi, modified_string ; destination string
+    xor rcx, rcx ; counter to track
+    ;mov dl, symbol ; symbol to find and remove
+    mov del, '@'
+l_loop:
+    mov al, byte ptr [rsi+rcx] ; read byte from the source string
+    cmp al, dl ; compare the byte with the symbol to remove
+    je l_skip ; if equal, skip over the symbol
+    mov byte ptr [rdi+rcx], al ; copy the byte to the new location
+l_skip:
+    inc rcx ; increment the counter
+    cmp rcx, len ; check if the end of the string is reached
+    jne l_loop ; if not, repeat the loop
 
+
+    ret
 MyFunction endp
 end
