@@ -12,7 +12,7 @@ MyFunction proc
     lea rdi, modified_string ; destination string
     xor rcx, rcx ; counter to track
     ;mov dl, symbol ; symbol to find and remove
-    mov del, '@'
+    mov dl, '@'
 l_loop:
     mov al, byte ptr [rsi+rcx] ; read byte from the source string
     cmp al, dl ; compare the byte with the symbol to remove
